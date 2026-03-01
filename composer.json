@@ -1,0 +1,23 @@
+{
+    "name": "probe/support",
+    "description": "All of the Support components for the Focal PHP Framework",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Probe\\Support\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patryk",
+            "email": "contact@patryknamyslak.pl"
+        }
+    ],
+    "require": {
+        "probe/helpers": "^1.1",
+        "symfony/filesystem": "^8.0",
+        "laravel/prompts": "^0.3.13",
+        "probe/database": "^1.0"
+    }
+}
