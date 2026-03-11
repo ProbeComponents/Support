@@ -43,6 +43,12 @@ abstract class Arr{
         return $arrays;
     }
 
+    /**
+     * Remove `$keys` from the `$array`
+     * @param array $array
+     * @param array $keys
+     * @return array
+     */
     public static function removeKeys(array $array, array $keys): array{
         foreach($keys as $key){
             unset($array[$key]);

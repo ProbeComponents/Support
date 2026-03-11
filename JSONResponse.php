@@ -24,6 +24,6 @@ class JSONResponse{
      */
     public function __construct(protected HttpResponseCode|HttpErrorResponseCode $responseCode = HttpResponseCode::OK, protected ?string $message = null, array $body = []){
         // Remove the code and message key from the body to prevent conflicts with $responseCode and $message
-        $this->body = array_diff_key(array: ["code", "message"], arrays: $body);
+        $this->body = array_remove_keys(array: $body, keys: ["code", "message"]);
     }
 }

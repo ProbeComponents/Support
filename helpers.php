@@ -21,6 +21,13 @@ if (version_compare(PHP_VERSION, "8.5.0", "<")){
         return Arr::last($array);
     }
 }
+
+/**
+ * Remove `$keys` from the `$array`
+ * @param array $array
+ * @param array $keys
+ * @return array
+ */
 function array_remove_keys(array $array, array $keys){
     return Arr::removeKeys($array, $keys);
 }
