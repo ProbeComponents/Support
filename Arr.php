@@ -21,7 +21,7 @@ abstract class Arr{
      * @param array $values An array of values to remove
      * @return array[array] Returns a multi dimensional array
      */
-    function multi_diff(array $arrays, array $values): array{
+    public static function multi_diff(array $arrays, array $values): array{
         if ($arrays === []) throw new InvalidArgumentException(message: '$arrays must be a two dimensional array, an empty array given');
         foreach($arrays as &$array){
             array_diff(array: $array, arrays: $values);
@@ -35,11 +35,18 @@ abstract class Arr{
      * @param array $keys Either an `array of indices` or `string keys for associative arrays`
      * @return array[array]
      */
-    function multi_key_diff(array $arrays, array $keys): array{
+    public static function multi_key_diff(array $arrays, array $keys): array{
         if ($arrays === []) throw new InvalidArgumentException(message: '$arrays must be a two dimensional array, an empty array given');
         foreach($arrays as &$array){
             array_diff_key(array: $array, arrays: $keys);
         }
         return $arrays;
+    }
+
+    public static function removeKeys(array $array, array $keys): array{
+        foreach($keys as $key){
+            unset($array[$key]);
+        }
+        return $array;
     }
 }
