@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Support\Auth\Models;
+namespace Probe\Auth\Models;
 
-use Probe\Support\Auth\Contracts\Authenticable;
+use Probe\Auth\Contracts\Authenticable;
 
 
 class User implements Authenticable{

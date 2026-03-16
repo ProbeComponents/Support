@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Support\Auth\Contracts;
+namespace Probe\Auth\Contracts;
 
-use Probe\Support\Auth\Contracts\Authenticable;
+use Probe\Auth\Contracts\Authenticable;
 
 
 interface UserRepositoryInterface{

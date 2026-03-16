@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Auth\Enums;
+namespace Probe\Auth\Enums;
 
 enum UserAuthType:string{
     case TICKETMASTER = "Ticketmaster";

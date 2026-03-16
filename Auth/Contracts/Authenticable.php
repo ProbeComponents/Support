@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Auth\Contracts;
+namespace Probe\Auth\Contracts;
 
 
 interface Authenticable{

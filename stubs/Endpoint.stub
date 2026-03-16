@@ -1,0 +1,32 @@
+<?php
+namespace App\Middleware\Endpoints;
+
+use Probe\Support\Routing\API\Endpoint;
+use Probe\Support\Enums\HttpMethod;
+
+
+class {{ name }} extends Endpoint{
+
+    protected bool $jsonOnly = false;
+
+
+    protected function requiredParameters(): array{
+        return [
+            HttpMethod::GET => [],
+            HttpMethod::POST => [],
+            HttpMethod::PUT => [],
+            HttpMethod::PATCH => [],
+            HttpMethod::DELETE => [],
+        ];
+    }
+
+    protected function optionalParameters(): array{
+        return [
+            HttpMethod::GET => [],
+            HttpMethod::POST => [],
+            HttpMethod::PUT => [],
+            HttpMethod::PATCH => [],
+            HttpMethod::DELETE => [],
+        ];
+    }
+}

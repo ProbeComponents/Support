@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Env\Blueprints;
+namespace Probe\Auth\Config;
 
-use Probe\Env\Contracts\EnvBlueprintInterface as Contract;
+use Probe\Env\Contracts\EnvBlueprint as Contract;
 
 use Dotenv\Dotenv;
 enum Env:string implements Contract{

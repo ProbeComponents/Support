@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Support\Auth\Repositories;
+namespace Probe\Auth\Repositories;
 
-use Probe\Support\Auth\Contracts\UserRepositoryInterface;
+use Probe\Auth\Contracts\UserRepositoryInterface;
 
 
 

@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Auth\Enums;
+namespace Probe\Auth\Enums;
 
 enum EnvironmentVariable:string{
 

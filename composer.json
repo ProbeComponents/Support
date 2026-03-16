@@ -5,7 +5,10 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Probe\\Support\\": "./"
+            "Probe\\Support\\": "./",
+            "Probe\\Auth\\": "Auth/",
+            "Probe\\Routing\\": "Routing/"
+
         },
         "files": [
             "./helpers.php"

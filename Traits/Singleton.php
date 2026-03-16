@@ -1,10 +1,21 @@
 <?php
 namespace Probe\Support\Traits;
 
+/**
+ * Make sure to also implement the Singleton Contract!
+ */
 trait Singleton{
-    public static ?object $instanceOfSelf = null;
+    protected static ?object $instanceOfSelf = null;
 
-    final public function __construct(){
+    /**
+     * Flag that determines whether to limit instance `overwriting` if its `true` then if `$instanceOfSelf` is `NOT` null, you cannot run `init()`
+     * @var bool
+     */
+    protected static bool $limit = true;
+
+
+
+    protected function __construct(){
         static::$instanceOfSelf = $this;
         $this->boot();
     }

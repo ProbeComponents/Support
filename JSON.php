@@ -1,7 +1,6 @@
 <?php
 namespace Probe\Support;
 
-use InvalidArgumentException;
 use Probe\Support\Traits\Stringable;
 
 
@@ -16,11 +15,11 @@ class JSON{
     /**
      * Create a `JSON::class` instance from a `VALID` JSON string
      * @param string $json
-     * @throws InvalidArgumentException If `$json` is invalid
+     * @throws \InvalidArgumentException If `$json` is invalid
      * @return JSON
      */
     public static function fromJSON(string $json): JSON{
-        if (!self::validate(json: $json)) throw new InvalidArgumentException(message: '$json must be valid JSON');
+        if (!self::validate(json: $json)) throw new \InvalidArgumentException(message: '$json must be valid JSON');
         return new self(json: $json);
     }
 

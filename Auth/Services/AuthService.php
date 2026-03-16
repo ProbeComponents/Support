@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Support\Auth\Services;
+namespace Probe\Auth\Services;
 
-use Probe\Support\Auth\Repositories\UserRepository;
+use Probe\Auth\Repositories\UserRepository;
 use Probe\Support\Facades\DB as DBFacade;
 
 class AuthService{

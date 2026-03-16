@@ -1,11 +1,11 @@
 <?php
 namespace Probe\Support;
-
 use Probe\Support\Traits\Stringable;
 
 /**
  * String helper class.
- * * Based on the Java String API https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+ * * Inspired by the Laravel Str Facade: https://laravel.com/docs/12.x/strings
+ * * Also Inspired by the Java String API https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
  */
 class Str{
     use Stringable;
@@ -25,6 +25,13 @@ class Str{
      */
     public function isJSON(): bool{
         return JSON::validate($this->string);
+    }
+    /**
+     * @throws \InvalidArgumentException If `$json` is invalid
+     * @return JSON
+     */
+    public function toJSON(): JSON{
+        return JSON::fromJSON($this->string);
     }
     /**
      * Checks whether the string property is the same as a provided string

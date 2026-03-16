@@ -1,8 +1,8 @@
 <?php
-namespace Probe\Support\Auth;
+namespace Probe\Auth;
 
 use Probe\Support\Database\DBO;
-use Probe\Support\Auth\Enums\AuthMode;
+use Probe\Auth\Enums\AuthMode;
 
 abstract class Validator{
     private static DBO $db;
