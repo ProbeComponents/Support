@@ -23,9 +23,7 @@
     "require": {
         "symfony/filesystem": "^8.0",
         "laravel/prompts": "^0.3.13",
-        "patryknamyslak/patform": "^1.3"
-    },
-    "require-dev": {
+        "patryknamyslak/patform": "^1.3",
         "symfony/var-dumper": "^8.0"
     }
 }
