@@ -23,11 +23,11 @@ abstract class Endpoint{
      */
     protected function requiredParameters(): array{
         return [
-            HttpMethod::GET => [],
-            HttpMethod::POST => [],
-            HttpMethod::PUT => [],
-            HttpMethod::PATCH => [],
-            HttpMethod::DELETE => [],
+            HttpMethod::GET->value => [],
+            HttpMethod::POST->value => [],
+            HttpMethod::PUT->value => [],
+            HttpMethod::PATCH->value => [],
+            HttpMethod::DELETE->value => [],
         ];
     }
     /**
@@ -36,11 +36,11 @@ abstract class Endpoint{
      */
     protected function optionalParameters(): array{
         return [
-            HttpMethod::GET => [],
-            HttpMethod::POST => [],
-            HttpMethod::PUT => [],
-            HttpMethod::PATCH => [],
-            HttpMethod::DELETE => [],
+            HttpMethod::GET->value => [],
+            HttpMethod::POST->value => [],
+            HttpMethod::PUT->value => [],
+            HttpMethod::PATCH->value => [],
+            HttpMethod::DELETE->value => [],
         ];
     }
 
