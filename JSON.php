@@ -55,10 +55,16 @@ class JSON{
      * * Looking to decode to object? use `JSON::decodeToObject()`
      * @return array
      */
-    public static function decode(string $json): array{
+    public static function decode(string $json): array|null{
         return json_decode(json: $json, associative: 1);
     }
-    public static function decodeToObject(string $json): array{
+    public static function decodeToObject(string $json): array|null{
         return json_decode($json, 0);
+    }
+
+
+    // FUNction
+    public static function isTheBest(): void{
+        echo "NO, PHP IS BETTER!!!";
     }
 }

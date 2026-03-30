@@ -14,6 +14,12 @@ abstract class ServiceProvider{
     protected $services = [];
 
     /**
+     * Custom commands that will be managed by the Application Core / Kernel
+     * @var array
+     */
+    public array $commands = [];
+
+    /**
      * An array of bootstrapped Services
      * @var array
      */
@@ -32,6 +38,13 @@ abstract class ServiceProvider{
         $this->services[$serviceClass] = $factory;
     }
 
+    public function addCommand(string $command, \Closure $logic): void{
+        if (isset($this->commands[$command])){
+            throw new \InvalidArgumentException("Cannot overwrite command {$command}");
+        }
+        $this->commands[$command] = $logic;
+    }
+    
 
 
     public function spinUp(string $serviceName): Service{
