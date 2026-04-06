@@ -7,8 +7,11 @@
         "psr-4": {
             "Probe\\Support\\": "./",
             "Probe\\Auth\\": "Auth/",
-            "Probe\\Routing\\": "Routing/"
-
+            "Probe\\Database\\": "Database/",
+            "Probe\\Routing\\": "Routing/",
+            "Probe\\Console\\": "Console/",
+            "Probe\\Foundation\\": "Foundation/",
+            "Probe\\Templating\\": "Templating/"
         },
         "files": [
             "./helpers.php"
@@ -17,7 +20,7 @@
     "authors": [
         {
             "name": "Patryk",
-            "email": "contact@patryknamyslak.pl"
+            "email": "patryk@focalphp.com"
         }
     ],
     "require": {

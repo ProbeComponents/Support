@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Database;
+namespace Probe\Database;
 
 use PatrykNamyslak\Patbase;
 

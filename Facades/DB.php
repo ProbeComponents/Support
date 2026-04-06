@@ -9,7 +9,6 @@ use Probe\Support\Database\DBO;
  * Database Facade
  */
 class DB extends PatbaseDBFacade{
-
     /**
      * Create a new instance of the Database connection interface (Patbase).
      * @param string $host

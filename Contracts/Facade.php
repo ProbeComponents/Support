@@ -1,6 +1,8 @@
 <?php
 namespace Probe\Support\Contracts;
 
+use Probe\Support\Traits\Bootable;
+
 
 abstract class Facade{
     /**
@@ -9,21 +11,16 @@ abstract class Facade{
      */
     protected static ?object $instance = null;
 
-    protected bool $hasEnvTemplate = false;
-
-    public function __construct(object $instance){
-        static::$instance = $instance;
-    }
+    /**
+     * Initialise an `$instance` in here
+     */
+    abstract public function __construct();
 
     public static function instance(): object|null{
         return static::$instance;
     }
 
-    /**
-     * The path to the env template for `.env` generation
-     * @return string
-     */
-    public function envTemplate(): string{
-        return "";
+    public static function getInstance(): object|null{
+        return self::instance();
     }
 }

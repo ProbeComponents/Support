@@ -1,12 +1,18 @@
 <?php
-namespace Probe\Support\Contracts;
+namespace Probe\Foundation\Http;
+
+
+use Probe\Support\Contracts\Makeable;
+use Probe\Support\Contracts\Service;
+use Probe\Support\Traits\HasStub;
 
 
 /**
  * A warehouse for all of your services stored neatly along with their setup logic!
  */
-abstract class ServiceProvider{
-    
+abstract class ServiceProvider extends Makeable{
+    use HasStub;
+
     /**
      * An array of Factories that return a Bootstrapped Service
      * @var array
@@ -14,17 +20,25 @@ abstract class ServiceProvider{
     protected $services = [];
 
     /**
-     * Custom commands that will be managed by the Application Core / Kernel
-     * @var array
-     */
-    public array $commands = [];
-
-    /**
      * An array of bootstrapped Services
      * @var array
      */
     public $instances = [];
 
+    public static function stub(): string{
+        return "provider.stub";
+    }
+    final public static function suffix(): string{
+        return "provider";
+    }
+    final public static function executeCommand(): void{
+        //
+    }
+
+    /**
+     * Define a bootstrap process for the provider, bind any Services required for your application here
+     * @return void
+     */
     abstract public function register(): void;
 
     /**
@@ -37,15 +51,7 @@ abstract class ServiceProvider{
         }
         $this->services[$serviceClass] = $factory;
     }
-
-    public function addCommand(string $command, \Closure $logic): void{
-        if (isset($this->commands[$command])){
-            throw new \InvalidArgumentException("Cannot overwrite command {$command}");
-        }
-        $this->commands[$command] = $logic;
-    }
     
-
 
     public function spinUp(string $serviceName): Service{
         if (!isset($this->services[$serviceName])){

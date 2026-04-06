@@ -2,11 +2,10 @@
 /**
 * Helper function to access the App instance
 * * You can use this method: `Only in a Focal App`
-* 
-* @return Probe\Core\App
+* @return Probe\Foundation\Application
 */
-function app(): Probe\Core\App{
-    return Probe\Core\App::getInstance();
+function app(): Probe\Foundation\Application{
+    return Probe\Foundation\Application::getInstance();
 }
 
 /**

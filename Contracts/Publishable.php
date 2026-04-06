@@ -2,14 +2,19 @@
 declare(strict_types=1);
 namespace Probe\Support\Contracts;
 
+use Probe\Console\Command;
 use Symfony\Component\Filesystem\Filesystem;
 use function Laravel\Prompts\error;
-
 
 /**
  * Utility Class for Publishing resources
  */
-abstract class Publishable extends UtilityClass{
+abstract class Publishable extends Command{
+
+    final public static function prefix(): string{
+        return "publish";
+    }
+
     /**
      * Get the name of the folder to use for publishing resources.
      * @return string
@@ -31,7 +36,7 @@ abstract class Publishable extends UtilityClass{
      */
     public static function publish(string $destinationDir): void{
         $destinationDir = rtrim($destinationDir) . "/" . static::publishedFolderName() . "/";
-        $filesystem = new Filesystem;
+        $filesystem = new Filesystem();
         if (is_dir($destinationDir)){
             error("Failed to publish resources. File or Directory {$destinationDir} Exists");
             exit;
@@ -40,4 +45,5 @@ abstract class Publishable extends UtilityClass{
         }
         $filesystem->mirror(originDir: static::pathToResources(), targetDir: $destinationDir, options: ['override' => false]);
     }
+
 }
