@@ -4,7 +4,7 @@ namespace Probe\Console\Commands;
 use Probe\Console\InternalCommand;
 
 
-class Help extends InternalCommand{
+class HelpCommand extends InternalCommand{
     public static function command(): string{
         return "help";
     }

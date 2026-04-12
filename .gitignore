@@ -1,3 +1,4 @@
 /vendor/
 /index.php
 Test*
+.DS_Store
