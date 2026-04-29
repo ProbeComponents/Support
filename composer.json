@@ -1,17 +1,11 @@
 {
-    "name": "probe/support",
-    "description": "All of the Support components for the Focal PHP Framework",
+    "name": "probe/components",
+    "description": "All of the components you may need to build modern PHP applications. (Used in Focal PHP)",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Probe\\Support\\": "./",
-            "Probe\\Auth\\": "Auth/",
-            "Probe\\Database\\": "Database/",
-            "Probe\\Routing\\": "Routing/",
-            "Probe\\Console\\": "Console/",
-            "Probe\\Foundation\\": "Foundation/",
-            "Probe\\Templating\\": "Templating/"
+            "Probe\\": "./"
         },
         "files": [
             "./helpers.php"

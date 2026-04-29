@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Contracts;
+namespace Probe\Contracts;
 
 /**
  * Registry that holds important file paths.

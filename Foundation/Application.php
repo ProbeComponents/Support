@@ -4,7 +4,7 @@ namespace Probe\Foundation;
 use Probe\Console\Commands\HelpCommand;
 use Probe\Foundation\Http\Controller;
 use Probe\Foundation\Http\ServiceProvider;
-use Probe\Support\Contracts\PathRegistry;
+use Probe\Contracts\PathRegistry;
 
 
 /**
@@ -29,7 +29,7 @@ abstract class Application{
 
 
     /**
-     * An registry that holds all of the paths to resources
+     * A registry that holds all of the paths to resources
      * @return class-string<PathRegistry>
      */
     abstract public static function pathRegistry(): string;

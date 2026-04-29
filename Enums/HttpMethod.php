@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Enums;
+namespace Probe\Enums;
 
 enum HttpMethod: string{
     // Fetch a resource

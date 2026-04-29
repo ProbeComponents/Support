@@ -1,4 +1,7 @@
 <?php
+use Probe\Http\Request;
+use Probe\Routing\Router;
+use Probe\Support\Facades\Session;
 use Probe\Support\JSON;
 use Probe\Support\Arr;
 
@@ -59,6 +62,18 @@ function env(string $key): int|bool|string{
 function isValidJSON(string $json): bool{
     return JSON::validate($json);
 }
-function isJson(string $json){
+function isJson(string $json): bool{
     return isValidJSON($json);
+}
+
+function request(): Request|null{
+    return Request::getInstance();
+}
+
+function session(): Session{
+    return new Session;
+}
+
+function router(): Router{
+    return Router::getInstance();
 }

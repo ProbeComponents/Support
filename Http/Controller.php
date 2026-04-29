@@ -1,7 +1,7 @@
 <?php
 namespace Probe\Foundation\Http;
 
-use Probe\Support\Contracts\Makeable;
+use Probe\Contracts\Makeable;
 
 
 abstract class Controller extends Makeable{

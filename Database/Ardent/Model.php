@@ -2,7 +2,7 @@
 namespace Probe\Database\Ardent;
 
 use ReflectionClass;
-use Probe\Support\Contracts\Model as Contract;
+use Probe\Contracts\Model as Contract;
 
 class Model implements Contract{
     protected string $table;

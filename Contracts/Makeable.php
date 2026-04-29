@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Contracts;
+namespace Probe\Contracts;
 
 use Probe\Console\UserCommand;
 use Probe\Support\Facades\File;

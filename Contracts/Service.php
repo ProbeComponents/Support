@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Contracts;
+namespace Probe\Contracts;
 
 
 interface Service{}

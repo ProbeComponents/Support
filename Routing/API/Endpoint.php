@@ -2,7 +2,7 @@
 namespace Probe\Foundation\Routing\API;
 
 use Exception;
-use Probe\Support\Enums\HttpMethod;
+use Probe\Enums\HttpMethod;
 
 
 /**

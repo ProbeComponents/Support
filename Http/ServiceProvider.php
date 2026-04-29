@@ -2,8 +2,8 @@
 namespace Probe\Foundation\Http;
 
 
-use Probe\Support\Contracts\Makeable;
-use Probe\Support\Contracts\Service;
+use Probe\Contracts\Makeable;
+use Probe\Contracts\Service;
 use Probe\Support\Traits\HasStub;
 
 
@@ -43,7 +43,7 @@ abstract class ServiceProvider extends Makeable{
 
     /**
      * @param class-string<Service> $serviceClass
-     * @param \Closure $factory Must return an instance of `Probe\Support\Contracts\Service`. Examples: https://focalphp.com/docs/components/service-provider/#factory
+     * @param \Closure $factory Must return an instance of `Probe\Contracts\Service`. Examples: https://focalphp.com/docs/components/service-provider/#factory
      */
     public function bind(string $serviceClass, \Closure $factory): void{
         if (!is_subclass_of(object_or_class: $serviceClass, class: Service::class)){

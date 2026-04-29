@@ -1,8 +1,9 @@
 <?php
-namespace Probe\Support;
+namespace Probe\Http;
 
-use Probe\Support\Enums\HttpErrorResponseCode;
-use Probe\Support\Enums\HttpResponseCode;
+use Probe\Enums\HttpErrorResponseCode;
+use Probe\Enums\HttpResponseCode;
+use Probe\Support\JSON;
 use Probe\Support\Traits\Stringable;
 
 class JSONResponse{

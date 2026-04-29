@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Foundation\Forms;
+namespace Probe\Forms;
 
 use PatrykNamyslak\PatForm\Input as PatFormInput;
 

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Probe\Support\Contracts;
+namespace Probe\Contracts;
 
 use Probe\Console\Command;
 use Symfony\Component\Filesystem\Filesystem;

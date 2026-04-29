@@ -2,7 +2,7 @@
 namespace App\Middleware\Endpoints;
 
 use Probe\Support\Routing\API\Endpoint;
-use Probe\Support\Enums\HttpMethod;
+use Probe\Enums\HttpMethod;
 
 
 class {{ name }} extends Endpoint{

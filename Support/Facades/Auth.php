@@ -1,5 +1,5 @@
 <?php
 namespace Probe\Support\Facades;
-use Probe\Support\Contracts\Publishable;
+use Probe\Contracts\Publishable;
 
 class Auth{}

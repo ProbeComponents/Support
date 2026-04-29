@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Support;
+namespace Probe\Support\Facades;
 
-use Probe\Support\Contracts\Publishable;
+use Probe\Contracts\Publishable;
 
 /**
  * Utility class for managing Stubs

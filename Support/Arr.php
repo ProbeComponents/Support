@@ -21,7 +21,7 @@ abstract class Arr{
      * @param array $values An array of values to remove
      * @return array[array] Returns a multi dimensional array
      */
-    public static function multi_diff(array $arrays, array $values): array{
+    public static function multiDiff(array $arrays, array $values): array{
         if ($arrays === []) throw new InvalidArgumentException(message: '$arrays must be a two dimensional array, an empty array given');
         foreach($arrays as &$array){
             array_diff(array: $array, arrays: $values);
@@ -35,7 +35,7 @@ abstract class Arr{
      * @param array $keys Either an `array of indices` or `string keys for associative arrays`
      * @return array[array]
      */
-    public static function multi_key_diff(array $arrays, array $keys): array{
+    public static function multiKeyDiff(array $arrays, array $keys): array{
         if ($arrays === []) throw new InvalidArgumentException(message: '$arrays must be a two dimensional array, an empty array given');
         foreach($arrays as &$array){
             array_diff_key(array: $array, arrays: $keys);
@@ -54,5 +54,21 @@ abstract class Arr{
             unset($array[$key]);
         }
         return $array;
+    }
+
+    /**
+     * Search a multi dimensional associative array and get its value if it exists null otherwise
+     * @param mixed $key Example: `"user.name"` will search for `$array["user"]["name"]`
+     */
+    public static function multiDimensionalSearch(array $array, $key): mixed{
+        $segments = explode(separator: '.', string: $key);
+        $current = $_SESSION;
+        foreach ($segments as $segment){
+            if (!isset($current[$segment])){
+                return null;
+            }
+            $current = $current[$segment];
+        }
+        return $current;
     }
 }

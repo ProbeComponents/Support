@@ -2,7 +2,7 @@
 namespace Probe\Support\Facades;
 
 use Dotenv\Dotenv;
-use Probe\Support\Contracts\Facade;
+use Probe\Contracts\Facade;
 use Probe\Support\Traits\Singleton;
 
 class Env extends Facade{

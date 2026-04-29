@@ -1,26 +1,27 @@
 <?php
-namespace Probe\Support\Contracts;
-
-use Probe\Support\Traits\Bootable;
+namespace Probe\Contracts;
 
 
 abstract class Facade{
-    /**
-     * An instance of the service that is being abstracted by the facade, Examples of valid Service Providers: https://focalframework.com/docs/service-providers
-     * @var object
-     */
-    protected static ?object $instance = null;
 
-    /**
-     * Initialise an `$instance` in here
-     */
-    abstract public function __construct();
+    protected static array $resolvedInstances = [];
 
-    public static function instance(): object|null{
-        return static::$instance;
+    abstract protected static function getFacadeAccessor(): object;
+
+    public static function getInstance(): object{
+        $facadeClass = static::class;
+
+        if (!isset(static::$resolvedInstances[$facadeClass])) {
+            static::$resolvedInstances[$facadeClass] = static::getFacadeAccessor();
+        }
+        return static::$resolvedInstances[$facadeClass];
     }
 
-    public static function getInstance(): object|null{
-        return self::instance();
+    public static function __callStatic(string $method, array $args){
+        $instance = static::getInstance();
+        if (!$instance){
+            throw new \RuntimeException("A Facade root has not been set.");
+        }
+        return $instance->$method(...$args);
     }
 }
