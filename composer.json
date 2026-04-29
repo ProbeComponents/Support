@@ -1,5 +1,5 @@
 {
-    "name": "probe/components",
+    "name": "probe/foundation",
     "description": "All of the components you may need to build modern PHP applications. (Used in Focal PHP)",
     "type": "library",
     "license": "MIT",
