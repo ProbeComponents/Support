@@ -7,7 +7,7 @@ use Probe\Support\Arr;
 
 
 function isFocalApp(): bool{
-    return class_exists(\Probe\Foundation\Application::class);
+    return class_exists(App\Application::class);
 }
 
 function displayErrors(): void{
