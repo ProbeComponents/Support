@@ -1,20 +1,16 @@
 <?php
 namespace Probe\Support\Facades;
 
-use Dotenv\Dotenv;
+use Probe\Managers\EnvironmentManager;
 use Probe\Patterns\Facade;
-use Probe\Support\Traits\Singleton;
 
+
+/**
+ * 
+ * @method static void loader(string $directory)
+ */
 class Env extends Facade{
-    use Singleton;
-    /**
-     * @var \Dotenv\Dotenv
-     */
-    protected static ?object $instance = null;
-
-    public function dotEnv(): Dotenv|null{
-        return static::$instance;
+    protected static function getFacadeAccessor(): object{
+        return EnvironmentManager::getInstance();
     }
-    
-
 }

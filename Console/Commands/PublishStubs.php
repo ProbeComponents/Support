@@ -5,7 +5,6 @@ use Probe\Console\Commands\Blueprints\InternalCommand;
 use Probe\Support\Facades\Stub;
 use Probe\Support\Str;
 
-use function Laravel\Prompts\error;
 
 /**
  * @method static void executeCommand(string $destinationDir)

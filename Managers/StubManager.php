@@ -1,7 +1,7 @@
 <?php
-namespace Probe\Support\Managers;
+namespace Probe\Managers;
 
-use Probe\Contracts\Publishable;
+use Probe\Blueprints\Publishable;
 
 /**
  * Utility class for managing Stubs

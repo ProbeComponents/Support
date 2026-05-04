@@ -7,7 +7,7 @@ use Probe\Support\Arr;
 
 
 function isFocalApp(): bool{
-    return class_exists(\Probe\Core\Application::class);
+    return class_exists(\Probe\Foundation\Application::class);
 }
 
 function displayErrors(): void{
@@ -36,7 +36,7 @@ if (version_compare(PHP_VERSION, "8.5.0", "<")){
  * @param array $keys
  * @return array
  */
-function array_remove_keys(array $array, array $keys){
+function array_remove_keys(array $array, array $keys): array{
     return Arr::removeKeys($array, $keys);
 }
 
@@ -66,7 +66,7 @@ function isJson(string $json): bool{
     return isValidJSON($json);
 }
 
-function request(): Request|null{
+function request(): Request{
     return Request::getInstance();
 }
 

@@ -2,7 +2,7 @@
 namespace Probe\Support\Facades;
 
 use Probe\Patterns\Facade;
-use Probe\Support\Managers\StubManager;
+use Probe\Managers\StubManager;
 
 /**
  * Facade for managing Stubs
