@@ -3,7 +3,7 @@ namespace Probe\Support\Facades;
 
 use PatrykNamyslak\Patbase\Enums\DatabaseDriver;
 use PatrykNamyslak\Patbase\Facades\DB as PatbaseDBFacade;
-use Probe\Support\Database\DBO;
+use Probe\Database\DBO;
 
 /**
  * Database Facade
