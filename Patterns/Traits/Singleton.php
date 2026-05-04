@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Support\Traits;
+namespace Probe\Patterns\Traits;
 
 
 trait Singleton{
@@ -14,6 +14,9 @@ trait Singleton{
      */
     protected static bool $limit = true;
 
+    /**
+     * Prevent direct instantisation
+     */
     protected function __construct(){
         //
     }

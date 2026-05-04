@@ -1,10 +1,11 @@
 <?php
 namespace Probe\Console\Commands;
 
-use Probe\Console\InternalCommand;
+use Probe\Console\Commands\Blueprints\InternalCommand;
 
 
-class HelpCommand extends InternalCommand{
+
+class Help extends InternalCommand{
     public static function command(): string{
         return "help";
     }

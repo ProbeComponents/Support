@@ -1,7 +1,7 @@
 <?php
 use Probe\Http\Request;
+use Probe\Http\SessionManager;
 use Probe\Routing\Router;
-use Probe\Support\Facades\Session;
 use Probe\Support\JSON;
 use Probe\Support\Arr;
 
@@ -70,10 +70,18 @@ function request(): Request|null{
     return Request::getInstance();
 }
 
-function session(): Session{
-    return new Session;
+function session(): SessionManager{
+    return SessionManager::getInstance();
 }
 
 function router(): Router{
     return Router::getInstance();
+}
+
+function stubPath(): string{
+    return __DIR__ . "/Stubs/";
+}
+
+function classExtends(string|object $objectOrClass, string $class): bool{
+    return is_subclass_of(object_or_class: $objectOrClass, class: $class);
 }

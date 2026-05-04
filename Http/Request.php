@@ -1,8 +1,8 @@
 <?php
 namespace Probe\Http;
 
+use Probe\Patterns\Singleton;
 use Probe\Support\Arr;
-use Probe\Contracts\Singleton;
 use Probe\Enums\HttpMethod;
 use Probe\Support\Facades\File;
 use Probe\Support\JSON;
@@ -15,9 +15,7 @@ class Request extends Singleton{
      * @param array $parameters GET Parameters
      * @param array $payload Any data sent along with the request: `POST, PUT, PATCH or DELETE`
      */
-    public function __construct(public string $endpoint, public HttpMethod $type, protected array $parameters, protected array $payload){
-        parent::__construct();
-    }
+    public function __construct(public string $endpoint, public HttpMethod $type, protected array $parameters, protected array $payload){}
 
     /**
      * Capture the incoming request
@@ -39,7 +37,7 @@ class Request extends Singleton{
      * @return string
      */
     public function uri(): string{
-        return $_SERVER['REQUEST_URI'];
+        return rtrim($_SERVER['REQUEST_URI'], "/");
     }
     public function path(): string{
         return static::uri();

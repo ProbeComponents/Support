@@ -2,5 +2,6 @@
 namespace Probe\Contracts;
 
 interface Model{
-    protected function assertTableName();
+    protected static function table(): string;
+    protected static function defaultTableName(): string;
 }

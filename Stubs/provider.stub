@@ -1,0 +1,11 @@
+<?php
+namespace {{ namespace }};
+
+use Probe\Http\ServiceProvider;
+
+class {{ name }} extends ServiceProvider{
+
+    public function register(): void{
+        //
+    }
+}

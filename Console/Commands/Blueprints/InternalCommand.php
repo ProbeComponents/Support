@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Console;
+namespace Probe\Console\Commands\Blueprints;
 
 
 /**

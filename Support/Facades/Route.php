@@ -1,7 +1,7 @@
 <?php
 namespace Probe\Support\Facades;
 
-use Probe\Contracts\Facade;
+use Probe\Patterns\Facade;
 use Probe\Routing\Router;
 use Probe\Routing\Route as RouteObject;
 

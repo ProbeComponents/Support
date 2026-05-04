@@ -1,21 +1,22 @@
 <?php
 namespace Probe\Database\Ardent;
 
+use Probe\Support\Facades\DB;
 use ReflectionClass;
 use Probe\Contracts\Model as Contract;
 
 class Model implements Contract{
-    protected string $table;
-    public function __construct(?string $table = NULL){
-        $this->table = $this->assertTableName();
+    protected static string $table;
+
+    public static function find(): self{
+        DB::select("*")->from(static::table())->where(UsersTable::ID);
     }
 
-    final protected function assertTableName(): string{
-        $name = new ReflectionClass($this)->getShortName();
-        $possibleTableNames = [
-            $name,
-            ucfirst($name),
-            strtolower($name),
-        ];
+    final protected static function defaultTableName(): string{
+        return ucfirst(new ReflectionClass(objectOrClass: static::class)->getShortName());
+    }
+
+    final protected static function table(): string{
+        return static::$table ?? self::defaultTableName();
     }
 }

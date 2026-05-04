@@ -1,15 +1,14 @@
 <?php
-namespace Probe\Foundation\Http;
+namespace Probe\Http;
 
-use Probe\Contracts\Makeable;
-
+use Probe\Blueprints\Makeable;
 
 abstract class Controller extends Makeable{
     final public static function suffix(): string{
         return "controller";
     }
 
-    final public static function executeCommand(): void{
-        echo "Created a controller at " . __DIR__ . "/App/Http/Controllers/Controller.php";
+    public static function folder(): string{
+        return "Http";
     }
 }

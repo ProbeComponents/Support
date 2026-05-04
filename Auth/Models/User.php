@@ -2,8 +2,9 @@
 namespace Probe\Auth\Models;
 
 use Probe\Auth\Contracts\Authenticable;
+use Probe\Database\Ardent\Model;
 
 
-class User implements Authenticable{
-
+class User extends Model implements Authenticable{
+    //
 }

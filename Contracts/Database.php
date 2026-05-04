@@ -1,6 +1,6 @@
 <?php
 namespace Probe\Contracts;
 
-interface DatabaseInterface{
+interface Database{
     public function fetch(string $query): Model;
 }

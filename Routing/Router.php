@@ -2,8 +2,8 @@
 namespace Probe\Routing;
 
 use Probe\Http\Request;
+use Probe\Patterns\Singleton;
 use Probe\Routing\Route;
-use Probe\Contracts\Singleton;
 use RuntimeException;
 
 class Router extends Singleton{

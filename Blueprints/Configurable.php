@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Contracts;
+namespace Probe\Blueprints;
 
 use InvalidArgumentException;
 use Probe\Support\Str;

@@ -1,5 +1,5 @@
 <?php
-namespace Probe\Foundation\Routing\API;
+namespace Probe\Routing\API;
 
 use Exception;
 use Probe\Enums\HttpMethod;

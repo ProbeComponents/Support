@@ -3,6 +3,6 @@ namespace Probe\Contracts;
 
 
 
-interface RepositoryInterface{
+interface Repository{
 
 }

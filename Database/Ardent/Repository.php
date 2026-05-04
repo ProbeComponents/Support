@@ -2,7 +2,7 @@
 namespace Probe\Database\Ardent;
 
 
-use Probe\Contracts\RepositoryInterface;
+use Probe\Contracts\Repository as RepositoryInterface;
 
 use Probe\Contracts\DatabaseInterface as DBI;
 

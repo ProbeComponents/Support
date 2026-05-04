@@ -45,6 +45,13 @@ class File{
     }
 
     public function __destruct(){
+        $this->close();
+    }
+
+    /**
+     * Close the currently opened file.
+     */
+    public function close(): void{
         if (is_resource($this->file)){
             fclose($this->file);
         }

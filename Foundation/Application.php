@@ -1,10 +1,14 @@
 <?php
 namespace Probe\Foundation;
 
-use Probe\Console\Commands\HelpCommand;
-use Probe\Foundation\Http\Controller;
-use Probe\Foundation\Http\ServiceProvider;
-use Probe\Contracts\PathRegistry;
+use Probe\Blueprints\PathRegistry;
+use Probe\Console\Commands\Blueprints\Command;
+use Probe\Console\Commands\Blueprints\CommandWithArgs;
+use Probe\Console\Commands\Help;
+use Probe\Console\Commands\PublishStubs;
+use Probe\Http\Controller;
+use Probe\Http\ServiceProvider;
+use function Laravel\Prompts\error;
 
 
 /**
@@ -30,9 +34,8 @@ abstract class Application{
 
     /**
      * A registry that holds all of the paths to resources
-     * @return class-string<PathRegistry>
      */
-    abstract public static function pathRegistry(): string;
+    abstract public function pathRegistry(): PathRegistry;
 
 
     /**
@@ -40,7 +43,7 @@ abstract class Application{
      * @return string
      */
     public function basePath(): string{
-        return static::pathRegistry()::basePath();
+        return $this->pathRegistry()->basePath();
     }
 
     public function __construct(){
@@ -69,12 +72,12 @@ abstract class Application{
 
     /**
      * Hook that binds internal commands
-     * @return void
      */
     private function internalCommands(): void{
-        $this->addCommand(commandClass: ServiceProvider::class);
-        $this->addCommand(commandClass: Controller::class);
-        $this->addCommand(commandClass: HelpCommand::class);
+        $this->addCommand(ServiceProvider::class);
+        $this->addCommand(Controller::class);
+        $this->addCommand(Help::class);
+        $this->addCommand(PublishStubs::class);
     }
 
     /**
@@ -95,13 +98,14 @@ abstract class Application{
 
     /**
      * Bind a command to the Application Kernel to be used in the CLI.
-     * @param class-string<\Probe\Console\Command> $commandClass
+     * @param class-string<Command|CommandWithArgs> $commandClass
      * @throws \InvalidArgumentException If the `$command` is already binded.
      * @return void
      */
     final public function addCommand(string $commandClass): void{
-        if (!is_subclass_of(object_or_class: $commandClass, class: \Probe\Console\Command::class)){
-            throw new \InvalidArgumentException("{$commandClass} needs to extend " . \Probe\Console\Command::class);
+        // if $commandClass does not extend Command or CommandWithArgs
+        if (!classExtends($commandClass, Command::class) && !classExtends($commandClass, CommandWithArgs::class)){
+            throw new \InvalidArgumentException("{$commandClass} needs to extend " . Command::class);
         }
 
         $command = $commandClass::command();
@@ -111,7 +115,7 @@ abstract class Application{
         $this->commands[$command] = $commandClass;
     }
 
-    final public function handleCommand(string $command): void{
+    final public function handleCommand(string $command, array $cliArgs): void{
         if(!key_exists($command, $this->commands)){
             echo "{$command} is not a valid command binded to the Application Kernel!\n\n";
             $this->listCommands();
@@ -119,7 +123,12 @@ abstract class Application{
         }
         
         $commandClass = $this->commands[$command];
-        $commandClass::executeCommand();
+
+        match(true){
+            classExtends($commandClass, Command::class) => $commandClass::executeCommand(),
+            classExtends($commandClass, CommandWithArgs::class) => $commandClass::executeCommand(...$cliArgs),
+            default => error("Invalid Command: {$commandClass} - It does not extend any of the required base classes!"),
+        };
     }
 
     public function listCommands(): void{
